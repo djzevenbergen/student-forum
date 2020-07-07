@@ -15,7 +15,7 @@ export default function PostList(props) {
         return <Post
           whenPostClicked={props.onPostSelection}
           onUpVote={props.onUpVote}
-          upVotes={props.upVotes}
+          upvotes={post.upvotes}
           title={post.title}
           body={post.body}
           id={post.id}
@@ -25,13 +25,6 @@ export default function PostList(props) {
     </React.Fragment>
   );
 }
-
-
-//   ) : <h2>No One has posted Yet</h2>}
-// </div >
-
-// </>
-
 
 PostList.propTypes = {
   postList: PropTypes.object,

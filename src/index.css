@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.upVote {
+}
+.post {
+  border: solid 2px black;
+  margin: 100px;
+}

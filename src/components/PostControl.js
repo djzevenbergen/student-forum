@@ -35,16 +35,18 @@ class PostControl extends React.Component {
     }
   }
 
+
+
   handleAddingNewPostToList = (newPost) => {
     const { dispatch } = this.props;
-    const { id, title, body, time, upVotes } = newPost;
+    const { id, title, body, time, upvotes } = newPost;
     const action = {
       type: "ADD_POST",
       id: id,
       title: title,
       body: body,
       time: time,
-      upVotes: upVotes
+      upvotes: upvotes
     }
     dispatch(action);
 
@@ -60,7 +62,14 @@ class PostControl extends React.Component {
   }
 
   handleUpvote = (id) => {
-
+    // const selectedPost = this.props.masterPostList[id];
+    const { dispatch } = this.props;;
+    const action = {
+      type: 'UPVOTE_POST',
+      id: id
+    }
+    console.log(id);
+    dispatch(action);
   }
 
   handleDeletingPost = (id) => {
@@ -79,14 +88,14 @@ class PostControl extends React.Component {
 
   handleEditingPostInList = (postToEdit) => {
     const { dispatch } = this.props;
-    const { id, title, body, time, upVotes } = postToEdit;
+    const { id, title, body, time, upvotes } = postToEdit;
     const action = {
       type: 'ADD_POST',
       id: id,
       title: title,
       body: body,
       time: time,
-      upVotes: upVotes
+      upvotes: upvotes
     }
     dispatch(action);
     this.setState({
@@ -123,7 +132,6 @@ class PostControl extends React.Component {
       </React.Fragment>
     )
   }
-
 }
 
 PostControl.propTypes = {
