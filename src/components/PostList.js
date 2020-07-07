@@ -16,6 +16,7 @@ export default function PostList(props) {
             title={post.title}
             body={post.body}
             id={post.id}
+            key={post.id}
             time={post.time} />
         }
         ) : <h2>No One has posted Yet</h2>}
