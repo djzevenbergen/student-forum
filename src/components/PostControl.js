@@ -12,6 +12,7 @@ class PostControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      formVisibleOnPage: false,
       selectedPost: null,
       editing: false
     };
@@ -59,6 +60,10 @@ class PostControl extends React.Component {
     this.setState({ selectedPost: selectedPost });
   }
 
+  handleUpvote = (id) => {
+
+  }
+
   handleDeletingPost = (id) => {
     const { dispatch } = this.props;
     const { action } = {
@@ -75,7 +80,7 @@ class PostControl extends React.Component {
 
   handleEditingPostInList = (postToEdit) => {
     const { dispatch } = this.props;
-    const { id, names, location, issue } = postToEdit;
+    const { id, title, body, time, upVotes } = postToEdit;
     const action = {
       type: 'ADD_POST',
       id: id,
@@ -109,7 +114,7 @@ class PostControl extends React.Component {
       currentlyVisibleState = <NewPostForm onNewPostCreation={this.handleAddingNewPostToList} />
       buttonText = "Return to Post List";
     } else {
-      currentlyVisibleState = <PostList postList={this.props.masterPostList} onPostSelection={this.handleChangingSelectedPost} />
+      currentlyVisibleState = <PostList postList={this.props.masterPostList} onPostSelection={this.handleChangingSelectedPost} onUpVote={this.handleUpvote} />
       buttonText = "Add Post";
     }
     return (
@@ -121,3 +126,19 @@ class PostControl extends React.Component {
   }
 
 }
+
+PostControl.propTypes = {
+  masterPostList: PropTypes.object,
+  formVisibleOnPage: PropTypes.bool
+};
+
+const mapStateToProps = state => {
+  return {
+    masterPostList: state,
+    formVisibleOnPage: state
+  }
+}
+
+PostControl = connect(mapStateToProps)(PostControl);
+
+export default PostControl;

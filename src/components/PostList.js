@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 import Post from './Post';
 import PropTypes from "prop-types";
 
 export default function PostList(props) {
-  const { PostList } = props
+  // const { postList } = props;
   return (
     <>
       <h1>Here are the posts, click detail for voting </h1>
       <div className="post-container">
-        {PostList.length > 0 ? PostList.map((post) => {
+        {props.postList.length > 0 ? props.postList.map((post) => {
           return <Post
             whenPostClicked={post.onPostSelection}
             onUpVote={post.onUpVote}

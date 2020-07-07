@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 function NewPostForm(props) {
   function handleNewPostFormSubmission(event) {
     event.preventDefault();
-    props.onNewPostCreation({ title: event.target.title.value, id: v4(), time: Date.now().getTime(), body: event.target.body.value })
+    props.onNewPostCreation({ title: event.target.title.value, id: v4(), time: Date.now(), body: event.target.body.value })
   }
 
   return (
