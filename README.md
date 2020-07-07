@@ -1,4 +1,14 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Student Forum
+### Made By : _Nitun Datta, DJ Zevenbergen, KhanSahab_
+
+
+## Description
+
+This is a small discussion forum for students to talk about classes. Created using React.js and Redux.
+
+## Component Tree
+![Diagram](./public/diagram.drawio)
+
 
 ## Available Scripts
 
@@ -36,6 +46,14 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Specification
+ * As a user, I want to enter content into a form and submit to create a new post.
+ * As a user, I want my new posts to include a timestamp. And I want to see when other  listings were posted, too.
+ * As a user, I want to upvote posts I particularly enjoy.
+ * As a user, I want to downvote posts I don't like, or find inappropriate.
+ * 
+ As a user, I'd like posts with the most upvotes to appear higher on the page. (We haven't explicitly covered this in our curriculum, but here's a hint: You can complete logic before the return statement of a mapStateToProps() method!)
 
 ## Learn More
 
