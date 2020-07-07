@@ -12,7 +12,6 @@ class PostControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: false,
       selectedPost: null,
       editing: false
     };
@@ -134,8 +133,8 @@ PostControl.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    masterPostList: state,
-    formVisibleOnPage: state
+    masterPostList: state.masterPostList,
+    formVisibleOnPage: state.formVisibleOnPage
   }
 }
 

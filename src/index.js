@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import { createStore } from 'redux';
-import reducer from './reducers/post-list-reducer';
+import rootReducer from './reducers/index';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <React.StrictMode>
