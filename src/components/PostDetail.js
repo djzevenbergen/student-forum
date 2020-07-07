@@ -8,6 +8,7 @@ function PostDetail(props) {
       <h1>{post.title}</h1>
       <h3>{post.body}</h3>
       <h3>{post.time}</h3>
+      <h3>{post.upvotes}</h3>
 
     </React.Fragment>
   )
