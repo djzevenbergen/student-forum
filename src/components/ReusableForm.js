@@ -16,6 +16,10 @@ function ReusableForm(props) {
           type="hidden"
           name="upvotes"
           value="0" />
+        <input
+          type="hidden"
+          name="downvotes"
+          value="0" />
         <textarea
           name='body'
           placeholder='Enter the body of your post here' /><br />

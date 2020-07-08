@@ -49,7 +49,6 @@ class PostControl extends React.Component {
       upvotes: upvotes
     }
     dispatch(action);
-
     const action2 = {
       type: 'TOGGLE_FORM'
     }
@@ -63,12 +62,21 @@ class PostControl extends React.Component {
 
   handleUpvote = (id) => {
     // const selectedPost = this.props.masterPostList[id];
-    const { dispatch } = this.props;;
+    const { dispatch } = this.props;
     const action = {
       type: 'UPVOTE_POST',
       id: id
     }
     console.log(id);
+    dispatch(action);
+  }
+
+  handleDownVote = (id) => {
+    const { dispatch } = this.props;
+    const action = {
+      type: 'DOWNVOTE_POST',
+      id: id
+    }
     dispatch(action);
   }
 
@@ -122,7 +130,7 @@ class PostControl extends React.Component {
       currentlyVisibleState = <NewPostForm onNewPostCreation={this.handleAddingNewPostToList} />
       buttonText = "Return to Post List";
     } else {
-      currentlyVisibleState = <PostList postList={this.props.masterPostList} onPostSelection={this.handleChangingSelectedPost} onUpVote={this.handleUpvote} />
+      currentlyVisibleState = <PostList postList={this.props.masterPostList} onPostSelection={this.handleChangingSelectedPost} onUpVote={this.handleUpvote} onDownVote={this.handleDownVote} />
       buttonText = "Add Post";
     }
     return (
@@ -140,6 +148,14 @@ PostControl.propTypes = {
 };
 
 const mapStateToProps = state => {
+  //order masterPostList by upvotes
+  if (state.masterPostList[0] != null) {
+    let arrayOfPosts = Object.values(state.masterPostList[0].upvotes);
+    console.log(arrayOfPosts);
+    console.log("hi");
+  }
+
+
   return {
     masterPostList: state.masterPostList,
     formVisibleOnPage: state.formVisibleOnPage

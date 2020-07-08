@@ -10,6 +10,7 @@ function PostDetail(props) {
       <h3>{post.body}</h3>
       <DateTime time={post.time} />
       <h3>{post.upvotes}</h3>
+      <h3>{post.downvotes}</h3>
 
     </React.Fragment>
   )

@@ -18,12 +18,12 @@ export default (state = {}, action) => {
       return newState;
     case 'UPVOTE_POST':
       const upvotedState = { ...state };
-      const upvotedPost = upvotedState[id];
-      console.log(upvotedPost);
       upvotedState[id].upvotes = upvotedState[id].upvotes + 1;
-      //Or
-      //upvotedPost[upvotes] = parseInt(upvotedPost[upvotes]) + 1;
       return upvotedState;
+    case 'DOWNVOTE_POST':
+      const downvotedState = { ...state };
+      downvotedState[id].upvotes = downvotedState[id].upvotes - 1;
+      return downvotedState;
     default:
       return state;
   }
