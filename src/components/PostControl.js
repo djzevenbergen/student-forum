@@ -160,28 +160,11 @@ const mapStateToProps = state => {
   if (Object.keys(state.masterPostList).length !== 0) {
     arrayOfPosts = Object.values(state.masterPostList);
     arrayOfPosts.sort(function (a, b) { return b.upvotes - a.upvotes });
-
   }
 
   arrayOfPosts.forEach(post => {
     sortedObject[post.id] = post;
   })
-  //   arrayOfPosts.forEach(post => {
-  //     Object.assign({}, sortedObject, {
-  //       [post.id]: {
-  //         title: post.title,
-  //         body: post.body,
-  //         time: post.time,
-  //         upvotes: post.upvotes,
-  //         id: post.id
-  //       }
-  //     });
-  //   });
-  // } else {
-  //   sortedObject = {};
-  // }
-  // let sortedObject = Object.assign({}, arrayOfPosts);
-
 
   return {
     masterPostList: sortedObject,//state.masterPostList,
