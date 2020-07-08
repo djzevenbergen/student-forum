@@ -56,8 +56,13 @@ class PostControl extends React.Component {
   }
 
   handleChangingSelectedPost = (id) => {
+    console.log(typeof (this.props.masterPostList));
+    console.log(this.props.masterPostList)
     const selectedPost = this.props.masterPostList[id];
+    console.log(selectedPost);
     this.setState({ selectedPost: selectedPost });
+    console.log(id);
+
   }
 
   handleUpvote = (id) => {
@@ -149,16 +154,14 @@ PostControl.propTypes = {
 
 const mapStateToProps = state => {
   //order masterPostList by upvotes
-  if (Object.keys(state.masterPostList).length !== 0) {
-    let arrayOfPosts = Object.values(state.masterPostList);
-    console.log(arrayOfPosts[0].upvotes);
-    arrayOfPosts.sort(function (a, b) { return a.upvotes - b.upvotes });
-    console.log(arrayOfPosts);
+  // console.log("selected post" + state.selectedPost);
+  // let arrayOfPosts;
+  // if (Object.keys(state.masterPostList).length !== 0) {
+  //   arrayOfPosts = Object.values(state.masterPostList);
+  //   arrayOfPosts.sort(function (a, b) { return b.upvotes - a.upvotes });
+  // }
 
-  }
-  // console.log(arrayOfPosts[0].upvotes);
-  // console.log("hi");
-
+  // let sortedObject = Object.assign({}, arrayOfPosts);
 
   return {
     masterPostList: state.masterPostList,
