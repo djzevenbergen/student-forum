@@ -153,18 +153,38 @@ PostControl.propTypes = {
 };
 
 const mapStateToProps = state => {
-  //order masterPostList by upvotes
-  // console.log("selected post" + state.selectedPost);
-  // let arrayOfPosts;
-  // if (Object.keys(state.masterPostList).length !== 0) {
-  //   arrayOfPosts = Object.values(state.masterPostList);
-  //   arrayOfPosts.sort(function (a, b) { return b.upvotes - a.upvotes });
-  // }
 
+  console.log("selected post" + state.selectedPost);
+  let arrayOfPosts = [];
+  let sortedObject = {};
+  if (Object.keys(state.masterPostList).length !== 0) {
+    arrayOfPosts = Object.values(state.masterPostList);
+    arrayOfPosts.sort(function (a, b) { return b.upvotes - a.upvotes });
+
+  }
+
+  arrayOfPosts.forEach(post => {
+    sortedObject[post.id] = post;
+  })
+  //   arrayOfPosts.forEach(post => {
+  //     Object.assign({}, sortedObject, {
+  //       [post.id]: {
+  //         title: post.title,
+  //         body: post.body,
+  //         time: post.time,
+  //         upvotes: post.upvotes,
+  //         id: post.id
+  //       }
+  //     });
+  //   });
+  // } else {
+  //   sortedObject = {};
+  // }
   // let sortedObject = Object.assign({}, arrayOfPosts);
 
+
   return {
-    masterPostList: state.masterPostList,
+    masterPostList: sortedObject,//state.masterPostList,
     formVisibleOnPage: state.formVisibleOnPage
   }
 }
