@@ -149,11 +149,15 @@ PostControl.propTypes = {
 
 const mapStateToProps = state => {
   //order masterPostList by upvotes
-  if (state.masterPostList[0] != null) {
-    let arrayOfPosts = Object.values(state.masterPostList[0].upvotes);
+  if (Object.keys(state.masterPostList).length !== 0) {
+    let arrayOfPosts = Object.values(state.masterPostList);
+    console.log(arrayOfPosts[0].upvotes);
+    arrayOfPosts.sort(function (a, b) { return a.upvotes - b.upvotes });
     console.log(arrayOfPosts);
-    console.log("hi");
+
   }
+  // console.log(arrayOfPosts[0].upvotes);
+  // console.log("hi");
 
 
   return {
