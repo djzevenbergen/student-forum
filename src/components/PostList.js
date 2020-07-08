@@ -14,6 +14,7 @@ export default function PostList(props) {
           onUpVote={props.onUpVote}
           upvotes={post.upvotes}
           onDownVote={props.onDownVote}
+          deletePost={props.deletePost}
           title={post.title}
           body={post.body}
           id={post.id}
@@ -28,7 +29,8 @@ PostList.propTypes = {
   postList: PropTypes.object,
   onPostSelection: PropTypes.func,
   onUpVote: PropTypes.func,
-  onDownVote: PropTypes.func
+  onDownVote: PropTypes.func,
+  deletePost: PropTypes.func
 };
 
 

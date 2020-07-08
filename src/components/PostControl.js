@@ -13,12 +13,12 @@ class PostControl extends React.Component {
     super(props);
     this.state = {
       selectedPost: null,
-      editing: false
+      //editing: false
     };
   }
 
-
   handleClick = () => {
+
     if (this.state.selectedPost != null) {
       this.setState({
         selectedPost: null,
@@ -34,8 +34,6 @@ class PostControl extends React.Component {
       dispatch(action);
     }
   }
-
-
 
   handleAddingNewPostToList = (newPost) => {
     const { dispatch } = this.props;
@@ -56,23 +54,16 @@ class PostControl extends React.Component {
   }
 
   handleChangingSelectedPost = (id) => {
-    console.log(typeof (this.props.masterPostList));
-    console.log(this.props.masterPostList)
     const selectedPost = this.props.masterPostList[id];
-    console.log(selectedPost);
     this.setState({ selectedPost: selectedPost });
-    console.log(id);
-
   }
 
   handleUpvote = (id) => {
-    // const selectedPost = this.props.masterPostList[id];
     const { dispatch } = this.props;
     const action = {
       type: 'UPVOTE_POST',
       id: id
     }
-    console.log(id);
     dispatch(action);
   }
 
@@ -87,7 +78,7 @@ class PostControl extends React.Component {
 
   handleDeletingPost = (id) => {
     const { dispatch } = this.props;
-    const { action } = {
+    const action = {
       type: 'DELETE_POST',
       id: id
     }
@@ -122,7 +113,8 @@ class PostControl extends React.Component {
     let buttonText = null;
 
     if (this.state.editing) {
-      currentlyVisibleState = <EditPostForm post={this.props.selectedPost} onEditPost={this.handleEditingPostInList} />
+      console.log(this.state.selectedPost);
+      currentlyVisibleState = <EditPostForm post={this.state.selectedPost} onEditPost={this.handleEditingPostInList} />
       buttonText = "Return to Post List";
     } else if (this.state.selectedPost != null) {
       currentlyVisibleState =
@@ -135,7 +127,7 @@ class PostControl extends React.Component {
       currentlyVisibleState = <NewPostForm onNewPostCreation={this.handleAddingNewPostToList} />
       buttonText = "Return to Post List";
     } else {
-      currentlyVisibleState = <PostList postList={this.props.masterPostList} onPostSelection={this.handleChangingSelectedPost} onUpVote={this.handleUpvote} onDownVote={this.handleDownVote} />
+      currentlyVisibleState = <PostList postList={this.props.masterPostList} onPostSelection={this.handleChangingSelectedPost} onUpVote={this.handleUpvote} onDownVote={this.handleDownVote} deletePost={this.handleDeletingPost} />
       buttonText = "Add Post";
     }
     return (
@@ -149,14 +141,14 @@ class PostControl extends React.Component {
 
 PostControl.propTypes = {
   masterPostList: PropTypes.object,
-  formVisibleOnPage: PropTypes.bool
+  formVisibleOnPage: PropTypes.bool,
+  editing: PropTypes.bool
 };
 
 const mapStateToProps = state => {
-
-  console.log("selected post" + state.selectedPost);
   let arrayOfPosts = [];
   let sortedObject = {};
+
   if (Object.keys(state.masterPostList).length !== 0) {
     arrayOfPosts = Object.values(state.masterPostList);
     arrayOfPosts.sort(function (a, b) { return b.upvotes - a.upvotes });
@@ -164,11 +156,12 @@ const mapStateToProps = state => {
 
   arrayOfPosts.forEach(post => {
     sortedObject[post.id] = post;
-  })
+  });
 
   return {
     masterPostList: sortedObject,//state.masterPostList,
-    formVisibleOnPage: state.formVisibleOnPage
+    formVisibleOnPage: state.formVisibleOnPage,
+    //editing: state.editing
   }
 }
 

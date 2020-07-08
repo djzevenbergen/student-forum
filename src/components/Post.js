@@ -22,6 +22,7 @@ Post.prototype = {
   upvotes: PropTypes.number,
   whenPostClicked: PropTypes.func,
   onUpVote: PropTypes.func,
-  onDownVote: PropTypes.func
+  onDownVote: PropTypes.func,
+  deletePost: PropTypes.func
 }
 export default Post;
