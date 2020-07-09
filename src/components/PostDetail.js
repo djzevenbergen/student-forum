@@ -11,10 +11,7 @@ function PostDetail(props) {
         <CardBody>
           <CardTitle><h1>{post.title}</h1></CardTitle>
           <CardSubtitle><DateTime time={post.time} /> -- <h3>{post.upvotes}</h3></CardSubtitle>
-          <CardText><h3>{post.body}</h3></CardText>
-
-
-          {/* <h3>{post.downvotes}</h3> */}
+          <CardText>{post.body}</CardText>
           <button onClick={props.onClickingEdit}>Update Post</button>
           <button className="upVote" onClick={() => props.onClickingDelete(post.id)}>Delete</button>
         </CardBody>

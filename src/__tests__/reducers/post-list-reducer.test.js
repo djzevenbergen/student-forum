@@ -1,4 +1,6 @@
 import postListReducer from '../../reducers/post-list-reducer';
+//import * as c from '../../actions/ActionTypes';
+import * as c from '../../actions/ActionTypes';
 
 let action;
 const postData = {
@@ -44,7 +46,7 @@ describe('postListReducer', () => {
   test('Should successfully add new post data to masterPosttList', () => {
     const { title, body, time, upvotes, id } = postData;
     action = {
-      type: 'ADD_POST',
+      type: c.ADD_POST,
       title: title,
       body: body,
       time: time,
@@ -65,7 +67,7 @@ describe('postListReducer', () => {
   test('Should successfully update post data if key already exits using same ADD_POST reducer.', () => {
     const { title, body, time, upvotes, id } = updatePostData;
     action = {
-      type: 'ADD_POST',
+      type: c.ADD_POST,
       title: title,
       body: body,
       time: time,
@@ -85,10 +87,12 @@ describe('postListReducer', () => {
 
   test('Should successfully delete a post', () => {
     action = {
-      type: 'DELETE_POST',
+      type: c.DELETE_POST,
       id: 1
     };
+
     expect(postListReducer(currentState, action)).toEqual({
+
       2: {
         title: "Hiking",
         body: "Enjoy the place",
