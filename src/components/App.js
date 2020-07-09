@@ -1,12 +1,15 @@
 import React from "react";
 import Header from "./Header";
 import PostControl from "./PostControl";
+import { Container } from 'reactstrap';
 
 function App() {
   return (
     <React.Fragment>
-      <Header />
-      <PostControl />
+      <Container>
+        <Header />
+        <PostControl />
+      </Container>
     </React.Fragment>
   )
 }

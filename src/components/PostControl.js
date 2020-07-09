@@ -6,6 +6,7 @@ import EditPostForm from './EditPostForm';
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 import { findAllByTestId } from '@testing-library/react';
+import * as c from './../actions/ActionTypes';
 
 class PostControl extends React.Component {
 

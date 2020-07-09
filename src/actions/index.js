@@ -22,7 +22,7 @@ export const downvotePost = () => ({
 export const addPost = (post) => {
   const { title, body, time, upvotes, id } = post;
   return {
-    type: 'ADD_TICKET',
+    type: 'ADD_POST',
     title: title,
     body: body,
     time: time,

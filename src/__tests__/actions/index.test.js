@@ -35,7 +35,7 @@ describe('post actions', () => {
 
   it('addPost should create ADD_POST action', () => {
     expect(actions.addPost({ title: 'Jo and Jasmine', body: '3E', time: '2398235638', upvotes: 0, id: 1 })).toEqual({
-      type: c.ADD_TICKET,
+      type: c.ADD_POST,
       title: 'Jo and Jasmine',
       body: '3E',
       time: '2398235638',
