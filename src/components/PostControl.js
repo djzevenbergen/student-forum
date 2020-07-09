@@ -21,9 +21,16 @@ class PostControl extends React.Component {
 
     if (this.state.selectedPost != null) {
       this.setState({
-        selectedPost: null,
-        editing: false
+        selectedPost: null
       });
+
+
+      const { dispatch } = this.props;
+      const action = {
+        type: 'TOGGLE_EDIT_FORM'
+      }
+      dispatch(action);
+      console.log("handle click" + action);
 
     } else {
 
@@ -87,7 +94,14 @@ class PostControl extends React.Component {
   }
 
   handleEditClick = () => {
-    this.setState({ editing: true });
+
+    const { dispatch } = this.props;
+    const action = {
+      type: 'TOGGLE_EDIT_FORM'
+    }
+    console.log(action);
+    console.log(this.props.editing);
+    dispatch(action);
   }
 
   handleEditingPostInList = (postToEdit) => {
@@ -102,8 +116,13 @@ class PostControl extends React.Component {
       upvotes: upvotes
     }
     dispatch(action);
+
+    const action2 = {
+      type: 'TOGGLE_EDIT_FORM'
+    }
+    dispatch(action2);
+
     this.setState({
-      editing: false,
       selectedPost: null
     });
   }
@@ -112,7 +131,7 @@ class PostControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if (this.state.editing) {
+    if (this.props.editing) {
       console.log(this.state.selectedPost);
       currentlyVisibleState = <EditPostForm post={this.state.selectedPost} onEditPost={this.handleEditingPostInList} />
       buttonText = "Return to Post List";
@@ -161,7 +180,7 @@ const mapStateToProps = state => {
   return {
     masterPostList: sortedObject,//state.masterPostList,
     formVisibleOnPage: state.formVisibleOnPage,
-    //editing: state.editing
+    editing: state.editing
   }
 }
 

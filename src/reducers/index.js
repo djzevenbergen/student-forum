@@ -1,6 +1,6 @@
 import formVisibleReducer from './form-visible-reducer';
 import postListReducer from './post-list-reducer';
-import editingReducer from './form-visible-reducer';
+import editingReducer from './editing-reducer';
 import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers(

@@ -11,9 +11,7 @@ function Post(props) {
         <button className="upVote" onClick={() => props.onUpVote(props.id)}>Upvote</button>
         <button className="upVote" onClick={() => props.onDownVote(props.id)}>DownVote</button>
       </div>
-
     </React.Fragment>
-
   );
 };
 

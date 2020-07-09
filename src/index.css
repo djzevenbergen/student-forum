@@ -5,7 +5,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: grey;
+  
 }
+
+#root {
+  background-color: grey;
+}
+:root{
+  background-color: grey;
+}
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -17,6 +28,7 @@ code {
 }
 
 .post {
-  border: solid 2px black;
+  border: solid 2px yellow;
   margin: 100px;
+  color: white;
 }

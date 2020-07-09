@@ -4,6 +4,6 @@ describe("editingReducer", () => {
 
 
   test('Should editing state to true', () => {
-    expect(editingReducer(false, { type: 'ADD_POST' })).toEqual(true);
+    expect(editingReducer(false, { type: 'TOGGLE_EDIT_FORM' })).toEqual(true);
   });
 });

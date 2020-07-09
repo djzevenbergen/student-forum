@@ -52,7 +52,7 @@ describe("rootReducer", () => {
 
   test('Check that initial state of editingReducer matches root reducer', () => {
     const action = {
-      type: 'ADD_POST'
+      type: 'TOGGLE_EDIT_FORM'
     }
     store.dispatch(action);
     expect(store.getState().editing).toEqual(editingReducer(undefined, action));
